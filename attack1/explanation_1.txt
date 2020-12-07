@@ -1,0 +1,6 @@
+Attack_1.php demonstrates a Cross Site Scripting Attack. Because attack_1.php displays whatever was previously entered into the form an attack could enter a script that would get run next. 
+For example, if an attack were to enter <script>alert("hacked")</script> that script would run and display the pop up. While displaying a pop up is not very sinister, it is easy to see 
+how an attacker can use this exploit to run a more sophisticated script that could do more damage, i.e. a script to steal user cookies. 
+
+Fix_1.php fixed the Cross Site Scripting Attack by encoding the user input with htmlentities before saving the input. Fix_1.php also checks for "<" and ">" and replaces them with 
+"&lt;" and "&gt;" incase htmlentities misses them for some reason. These two additions ensure that any script input will be displayed as text rather than get run.
